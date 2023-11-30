@@ -11,13 +11,11 @@
 		const lastBreadcrumbItemIndex = breadcrumbsList.length - 1;
 		const thirdToLastBreadcrumbItemIndex = breadcrumbsList.length - 3;
 
-		const groupBreadcrumb = breadcrumbsList[0];
 		const projectBreadcrumb = breadcrumbsList[thirdToLastBreadcrumbItemIndex];
 		const idBreadcrumb = breadcrumbsList[lastBreadcrumbItemIndex];
 
-		const groupName =
-			$(selectors.groupName, groupBreadcrumb)?.textContent?.trim() ||
-			$(selectors.anchor, groupBreadcrumb)?.textContent?.trim();
+		const groupName = document.body.dataset.groupFullPath;
+
 		const id = $(selectors.id, idBreadcrumb).textContent.trim();
 		const title = () => $(selectors.issueTitle).textContent.trim();
 		const labels = () => Array.from($$(selectors.label));
